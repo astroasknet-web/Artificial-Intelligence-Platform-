@@ -48,7 +48,7 @@ export function Nav() {
 }
 
 export function Footer() {
-  const sibs = SIBLINGS.filter((s): s is { label: string; url: string } => Boolean(s.url));
+  const sibs = SIBLINGS.filter((s): s is { label: string; url: string; nav?: boolean } => Boolean(s.url));
   return (
     <footer className="foot">
       <div className="foot-in">
@@ -65,7 +65,7 @@ export function Footer() {
         {sibs.length ? (
           <ul aria-label="Yugty portals">
             {sibs.map((s) => (
-              <li key={s.label}><a href={s.url} rel="noopener">Yugty{s.label}</a></li>
+              <li key={s.label}><a href={s.url} rel="noopener">{s.label}</a></li>
             ))}
           </ul>
         ) : null}

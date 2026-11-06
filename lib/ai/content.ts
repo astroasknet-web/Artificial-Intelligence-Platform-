@@ -3,10 +3,12 @@
 export const BRAND = { name: "Yugty.AI", tagline: "Specialised AI agents, with people in the loop." };
 
 /** Other Yugty portals. A link shows only when its URL is configured. */
-export const SIBLINGS: { label: string; url: string | undefined }[] = [
-  { label: "Jobs", url: process.env.NEXT_PUBLIC_YUGTYJOBS_URL },
-  { label: "Learning", url: process.env.NEXT_PUBLIC_YUGTYLEARNING_URL },
-  { label: "Technology", url: process.env.NEXT_PUBLIC_YUGTYTECHNOLOGY_URL },
+export const SIBLINGS: { label: string; url: string | undefined; nav?: boolean }[] = [
+  { label: "Yugti", url: process.env.NEXT_PUBLIC_YUGTI_URL || "https://yugti.com" },
+  { label: "Yugti Overseas Education", url: process.env.NEXT_PUBLIC_YUGTYOVERSEAS_URL || "https://yugtioverseaseducation.com" },
+  { label: "Yugti Learning", url: process.env.NEXT_PUBLIC_YUGTYLEARNING_URL || "https://yugtilearning.com", nav: true },
+  { label: "Yugti Jobs", url: process.env.NEXT_PUBLIC_YUGTYJOBS_URL || "https://yugtijobs.com", nav: true },
+  { label: "Yugti Technology", url: process.env.NEXT_PUBLIC_YUGTYTECHNOLOGY_URL || "https://yugtitechnology.com", nav: true },
 ];
 
 /** Where an individual's agent opens. Empty means the cards are not links yet. */
