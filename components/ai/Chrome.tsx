@@ -1,4 +1,6 @@
 import Link from "next/link";
+import StandardFooter from "@/components/standard-footer/StandardFooter";
+import { FOOTER } from "@/lib/footer.config";
 import { BRAND, SIBLINGS } from "@/lib/ai/content";
 
 const LINKS: [string, string][] = [["/#business", "For business"], ["/#people", "For people"], ["/#how", "How it works"], ["/#faq", "FAQ"]];
@@ -47,31 +49,12 @@ export function Nav() {
   );
 }
 
+/** The standard Yugty footer. Edit lib/footer.config.ts to change its content for this app. */
 export function Footer() {
-  const sibs = SIBLINGS.filter((s): s is { label: string; url: string; nav?: boolean } => Boolean(s.url));
   return (
-    <footer className="foot">
-      <div className="foot-in">
-        <div>
-          <Logo />
-          <p>{BRAND.tagline}</p>
-        </div>
-        <ul aria-label="Explore">
-          <li><Link href="/#business">For business</Link></li>
-          <li><Link href="/#people">For people</Link></li>
-          <li><Link href="/book">Book a demo</Link></li>
-          <li><Link href="/privacy">Privacy</Link></li>
-        </ul>
-        {sibs.length ? (
-          <ul aria-label="Yugty portals">
-            {sibs.map((s) => (
-              <li key={s.label}><a href={s.url} rel="noopener">{s.label}</a></li>
-            ))}
-          </ul>
-        ) : null}
-      </div>
-      <p className="foot-legal">© {new Date().getFullYear()} Yugty.AI. All rights reserved.</p>
-    </footer>
+    <div id="yugty-footer">
+      <StandardFooter config={FOOTER} />
+    </div>
   );
 }
 

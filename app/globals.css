@@ -185,3 +185,6 @@ a.mini-card:hover { transform: translateY(-3px); border-color: var(--teal); }
 .foot-in ul a { font-weight: 500; color: color-mix(in srgb, var(--ink) 80%, transparent); transition: color .2s, transform .2s; text-underline-offset: 5px; display: inline-block; }
 .foot-in ul a:hover { color: var(--ink); transform: translateX(2px); text-decoration: underline; text-decoration-color: var(--teal); text-decoration-thickness: 2px; }
 .foot-legal { font-size: 0.86rem; }
+
+/* standard footer: headings use the footer's own font family */
+footer#company h1, footer#company h2, footer#company h3, footer#company h4 { font-family: inherit; }
